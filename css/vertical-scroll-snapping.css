@@ -1,0 +1,47 @@
+@import "reset.css";
+
+ul {
+  --shadow-color: rgba(255, 0, 238, 0.65);
+  --base-color: #4c005c;
+  --transparent-stop: transparent 70%;
+  --linear-gradient-size: 100% 50px;
+  --radial-gradient-size: 100% 20px;
+  --gradient-start: 20px;
+
+  background:
+    /* 1️⃣ Top linear gradient */ linear-gradient(
+        var(--base-color),
+        transparent
+      )
+      top/var(--linear-gradient-size),
+    /* 2️⃣ Top radial shadow */
+      radial-gradient(
+        at top,
+        var(--shadow-color),
+        var(--transparent-stop)
+      )
+      top/var(--radial-gradient-size),
+    /* 3️⃣ Bottom linear gradient */
+      linear-gradient(
+        to top,
+        var(--base-color) var(--gradient-start),
+        transparent
+      )
+      bottom/var(--linear-gradient-size),
+    /* 4️⃣ Bottom radial shadow */
+      radial-gradient(
+        at bottom,
+        var(--shadow-color),
+        var(--transparent-stop)
+      )
+      bottom/var(--radial-gradient-size);
+
+  background-color: var(--base-color);
+  background-repeat: no-repeat;
+
+  /* 1️⃣ scrolls with the content */
+  /* 2️⃣ fixed during scroll */
+  /* 3️⃣ scrolls with the content */
+  /* 4️⃣ fixed during scroll */
+  background-attachment: local, scroll;
+}
